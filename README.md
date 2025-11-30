@@ -1,6 +1,6 @@
 ## TREEJSON
 ### Traverse a JSON using a collapsible Tree 
-
+![Screenshot](screenshot.png)
 ---
 
 ## Install 
