@@ -2,6 +2,7 @@ from typing import Any
 from textual.app import App, ComposeResult
 from textual.widgets import Header, Footer, Tree
 from textual.widgets.tree import TreeNode
+from ._search import SearchScreen, Search
 
 
 class TreeJson(App):
@@ -18,6 +19,7 @@ class TreeJson(App):
         ("q", "quit", "Quit"),
         ("e", "expand_all", "Expand All"),
         ("c", "collapse_all", "Collapse All"),
+        ("s", "search", "Search"),
     ]
 
     def __init__(self, json_data: Any, title: str = "JSON Tree"):
@@ -69,3 +71,36 @@ class TreeJson(App):
         tree = self.query_one(Tree)
         tree.root.collapse_all()
         tree.root.expand()
+    
+    def action_search(self) -> None:
+        self.push_screen(SearchScreen())
+    
+    def on_search(self, event: Search) -> None:
+        query = event.query
+        node = self.find_first_match(self.query_one(Tree).root, query)
+        if node:
+            self.focus_node(node)
+
+    def find_first_match(self, node: TreeNode[Any], query: str) -> TreeNode[Any] | None:
+        """Depth-first search for partial label match."""
+        if query in node.label.plain.lower():
+            return node
+        for child in node.children:
+            match = self.find_first_match(child, query)
+            if match:
+                return match
+        return None
+
+    def focus_node(self, node: TreeNode[Any]) -> None:
+        """Expand path and set cursor."""
+        tree: Tree[Any] = self.query_one(Tree)
+        current = node
+        while current.parent and not current.parent.is_expanded:
+            current.parent.expand()
+            current = current.parent
+        tree.move_cursor(node)
+        if not node.allow_expand:
+            tree.move_cursor(node)
+        else:
+            node.expand()
+        self.set_focus(tree)
