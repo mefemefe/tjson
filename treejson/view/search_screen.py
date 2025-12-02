@@ -29,4 +29,3 @@ class SearchScreen(ModalScreen[str]):
         if query:
             self.post_message(Search(query))
         self.dismiss()
-
