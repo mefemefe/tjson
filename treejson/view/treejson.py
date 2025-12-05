@@ -27,6 +27,7 @@ class TreeJson(App):
         super().__init__()
         self.json_data = json_data
         self.app_title = title
+        self.current_node = None
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -37,7 +38,12 @@ class TreeJson(App):
         """Load the JSON data into the tree when the app starts."""
         tree = self.query_one(Tree)
         tree.root.expand()
+        # NOTE: Could use "add_json", but "build tree" has a nicer formatting.
+        #tree.add_json(self.json_data, tree.root)
         build_tree(tree.root, self.json_data)
+
+    def on_tree_node_highlighted(self, event: Tree.NodeHighlighted) -> None:
+        self.current_node = event.node
 
     def action_expand_all(self) -> None:
         tree = self.query_one(Tree)
@@ -54,7 +60,10 @@ class TreeJson(App):
     def on_search(self, event: Search) -> None:
         query = event.query
         tree = self.query_one(Tree)
-        node = find_first_match(tree.root, query)
+        if self.current_node:
+            node = find_first_match(self.current_node, query)
+        if not node:
+            node = find_first_match(tree.root, query)
         if node:
             focus_node(tree, node)
             self.set_focus(tree)

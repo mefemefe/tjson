@@ -14,3 +14,13 @@
 
 ### With string:
 `treejson '{"test": {"test2": "test3"}}'`
+
+
+### Bindings
+`q` QUIT
+
+`e` EXPANDALL
+
+`c` COLLAPSEALL
+
+`s` SEARCH (find next node that matches query, if no match, searches from root)
