@@ -15,6 +15,12 @@ class TestLoadJson(unittest.TestCase):
         with open(FILE, "r", encoding="utf-8") as f:
             self.assertEqual(data, json.load(f))
 
+    def test_load_from_file2(self):
+        FILE = "test/large_example.json"
+        data, _ = load_json_input(FILE)
+        with open(FILE, "r", encoding="utf-8") as f:
+            self.assertEqual(data, json.load(f))
+
 
 if __name__ == "__main__":
     unittest.main()
