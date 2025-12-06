@@ -1,5 +1,5 @@
 import sys
-from treejson import TreeJson, load_json_input
+from tjson import T_JSON, load_json_input
 
 
 def check_at_least_one_arg():
@@ -18,7 +18,7 @@ def load_json_from_args():
 def main():
     check_at_least_one_arg()    
     json1, json2 = load_json_from_args()
-    app = TreeJson(*json1, *json2)
+    app = T_JSON(*json1, *json2)
     app.run()
 
 

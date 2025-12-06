@@ -8,7 +8,7 @@ from ..controller.search import find_first_match, focus_node
 from ..controller.build_tree import build_tree
 
 
-class TreeJson(App):
+class T_JSON(App):
     """A Textual app to visualize JSON data in a tree structure."""
 
     CSS = """
@@ -38,7 +38,7 @@ class TreeJson(App):
         self.current_node = None
 
     def compose(self) -> ComposeResult:
-        yield Header(True, icon="🌳")
+        yield Header(True, name="TJSON", icon="🌳")
         with Horizontal():
             yield Tree(self.app_title)
             if self.json_data2:
