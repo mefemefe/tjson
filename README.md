@@ -2,13 +2,17 @@
 ### Traverse a JSON using a collapsible Tree
 #### Will show 2 Trees side by side if 2 inputs are passed.
 ![Screenshot](screenshot.png)
+
 ---
 
 ## Download
-<a href=https://github.com/mefemefe/tjson/releases/download/0.1.0/tjson><button>tjson/v0.1.0</button></a> <--
+<a href=https://github.com/mefemefe/tjson/releases/download/0.1.1/tjson><button>tjson/v0.1.1</button></a> <--
 
-## OR Install 
+## OR Install from source
 `pip install -e .`
+
+## OR Install from pypi
+`pip install tuijson` (command can be run as both `tjson` or `tuijson`)
 
 ---
 
