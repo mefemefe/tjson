@@ -3,7 +3,7 @@
         "host": "localhost",
         "port": 8080
     },
-    "debug": true,
+    "debug": false,
     "roles": [
         "admin",
         "user"

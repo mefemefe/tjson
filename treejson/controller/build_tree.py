@@ -2,16 +2,17 @@ from typing import Any
 from textual.widgets.tree import TreeNode
 
 
-def build_tree(node: TreeNode, data: Any) -> TreeNode:
+def build_tree(node: TreeNode, data: Any, new: dict = {}, deleted: list = []) -> TreeNode:
         """Recursively adds JSON data to the tree."""
         # DICT
         if isinstance(data, dict):
             for key, value in data.items():
+                modif = ""
                 if isinstance(value, (dict, list)):
-                    branch = node.add(f"[bold blue]{key}[/]", expand=False)
+                    branch = node.add(f"[bold blue{modif}]{key}[/]", expand=False)
                     build_tree(branch, value)
                 else:
-                    node.add_leaf(f"[blue]{key}:[/] [green]{value!r}[/]")
+                    node.add_leaf(f"[blue{modif}]{key}:[/] [green]{value!r}[/]")
         # LIST
         elif isinstance(data, list):
             for index, item in enumerate(data):
