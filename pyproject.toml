@@ -3,12 +3,13 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "treejson"
+name = "tjson"
 version = "0.1.1"
 description = "Open a JSON file or load a JSON string and traverse it as a collapsable tree."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "jsondiff>=2.2.1",
     "textual>=6.7.0",
 ]
 
@@ -16,4 +17,4 @@ dependencies = [
 test = ["pytest"]
 
 [project.scripts]
-treejson = "treejson.main:main"
+tjson = "tjson.main:main"

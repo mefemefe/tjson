@@ -1,6 +1,6 @@
 import unittest
 import json
-from treejson import load_json_input
+from tjson import load_json_input
 
 
 class TestLoadJson(unittest.TestCase):
