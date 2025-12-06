@@ -4,8 +4,13 @@
 ![Screenshot](screenshot.png)
 ---
 
-## Install 
+## Download
+<a href=https://github.com/mefemefe/tjson/releases/download/0.1.0/tjson><button>tjson/v0.1.0</button></a> <--
+
+## OR Install 
 `pip install -e .`
+
+---
 
 ## Usage:
 `treejson <json_file_or_json_string> OPTIONAL:<json_file_or_json_string2>`
@@ -19,6 +24,7 @@
 ### Two files:
 `treejson 1.json 2.json`
 
+---
 
 ### Bindings
 `q` QUIT
