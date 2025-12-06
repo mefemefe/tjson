@@ -38,7 +38,7 @@ class TreeJson(App):
         self.current_node = None
 
     def compose(self) -> ComposeResult:
-        yield Header()
+        yield Header(True, icon="🌳")
         with Horizontal():
             yield Tree(self.app_title)
             if self.json_data2:
