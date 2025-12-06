@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tjson"
+name = "tuijson"
 version = "0.1.1"
 description = "Open a JSON file or load a JSON string and traverse it as a collapsable tree."
 readme = "README.md"
@@ -19,3 +19,4 @@ build = ["shiv"]
 
 [project.scripts]
 tjson = "tjson.main:main"
+tuijson = "tjson.main:main"
