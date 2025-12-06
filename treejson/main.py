@@ -2,12 +2,23 @@ import sys
 from treejson import TreeJson, load_json_input
 
 
-def main():
+def check_at_least_one_arg():
     if len(sys.argv) < 2:
-        print(sys.argv)
-        sys.exit("Usage: treejson <json_string_or_filepath>")
+        sys.exit("Usage: treejson <json_string_or_filepath> OPTIONAL:<json_string_or_filepath2>")
 
-    app = TreeJson(*load_json_input(sys.argv[1]))
+
+def load_json_from_args():
+    json1 = load_json_input(sys.argv[1])
+    json2 = (None, "")
+    if len(sys.argv[1:]) > 1:
+        json2 = load_json_input(sys.argv[2])
+    return json1, json2
+    
+
+def main():
+    check_at_least_one_arg()    
+    json1, json2 = load_json_from_args()
+    app = TreeJson(*json1, *json2)
     app.run()
 
 
