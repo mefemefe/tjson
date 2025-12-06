@@ -13,16 +13,16 @@
 ---
 
 ## Usage:
-`treejson <json_file_or_json_string> OPTIONAL:<json_file_or_json_string2>`
+`tjson <json_file_or_json_string> OPTIONAL:<json_file_or_json_string2>`
 
 ### With file:
-`treejson example.json`
+`tjson example.json`
 
 ### With string:
-`treejson '{"test": {"test2": "test3"}}'`
+`tjson '{"test": {"test2": "test3"}}'`
 
 ### Two files:
-`treejson 1.json 2.json`
+`tjson 1.json 2.json`
 
 ---
 
