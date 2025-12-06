@@ -1,6 +1,6 @@
-## TREEJSON
+## T-JSON (TreeJSON / TUI-JSON)
 ### Traverse a JSON using a collapsible Tree
-### Will show 2 Trees side by side if 2 inputs are passed.
+#### Will show 2 Trees side by side if 2 inputs are passed.
 ![Screenshot](screenshot.png)
 ---
 
