@@ -6,7 +6,7 @@
 ---
 
 ## Download
-<a href=https://github.com/mefemefe/tjson/releases/download/0.1.1/tjson><button>tjson/v0.1.1</button></a> <--
+<a href=https://github.com/mefemefe/tjson/releases><button>RELEASES</button></a> <--
 
 ## OR Install from source
 `pip install -e .`
